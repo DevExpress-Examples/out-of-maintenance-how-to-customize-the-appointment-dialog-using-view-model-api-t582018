@@ -6,6 +6,9 @@ Imports System.Collections.Generic
 Imports System.Drawing
 Imports System
 Imports System.Web
+Imports DevExpress.Web.Mvc
+Imports DevExpress.XtraScheduler
+Imports DevExpress.Web
 
 Public Class SchedulerDataHelper
     Public Shared Function GetResources() As List(Of CustomResource)
@@ -127,33 +130,33 @@ Public Class SchedulerDataHelper
         settings.Start = Date.Now
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.PrepareControl(Sub(cb As ASPxCheckBox)
-            cb.ToggleSwitchDisplayMode = ToggleSwitchDisplayMode.Never
-        End Sub)
+                                                                                                  cb.ToggleSwitchDisplayMode = ToggleSwitchDisplayMode.Never
+                                                                                              End Sub)
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.PrepareControlFor(Function(m) m.StartTime, Sub(de As ASPxDateEdit)
-            de.EditFormat = EditFormat.Custom
-            de.EditFormatString = "dd - MM - yyyy"
-        End Sub)
+                                                                                                                              de.EditFormat = EditFormat.Custom
+                                                                                                                              de.EditFormatString = "dd - MM - yyyy"
+                                                                                                                          End Sub)
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.PrepareControlFor(Function(m) m.EndTime, Sub(de As ASPxDateEdit)
-            de.EditFormat = EditFormat.Custom
-            de.EditFormatString = "dd - MM - yyyy"
-        End Sub)
+                                                                                                                            de.EditFormat = EditFormat.Custom
+                                                                                                                            de.EditFormatString = "dd - MM - yyyy"
+                                                                                                                        End Sub)
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.PrepareControlFor(Function(m) m.ResourceIds, Sub(de As ASPxComboBox)
-            de.Caption = "Employee"
-        End Sub)
+                                                                                                                                de.Caption = "Employee"
+                                                                                                                            End Sub)
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.PrepareControlFor(Function(m) m.Subject, Sub(de As ASPxTextBox)
-            de.CaptionStyle.ForeColor = Color.Red
-            de.CaptionStyle.Font.Bold = True
-        End Sub)
+                                                                                                                            de.CaptionStyle.ForeColor = Color.Red
+                                                                                                                            de.CaptionStyle.Font.Bold = True
+                                                                                                                        End Sub)
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.PrepareControlFor(Function(m) m.Description, Sub([me] As ASPxMemo)
-            [me].ForeColor = Color.Blue
-            [me].Font.Bold = True
-            [me].Font.Italic = True
-        End Sub)
+                                                                                                                                [me].ForeColor = Color.Blue
+                                                                                                                                [me].Font.Bold = True
+                                                                                                                                [me].Font.Italic = True
+                                                                                                                            End Sub)
 
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.SetItemVisibilityCondition("Location", False)
         settings.OptionsForms.DialogLayoutSettings.AppointmentDialog.ViewModel.SetItemVisibilityCondition(Function(vm) vm.IsAllDay, False)
